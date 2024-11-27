@@ -1,1 +1,6 @@
 SHOW DATABASES;
+
+CREATE DATABASE abc;
+DROP DATABASE abc;
+
+SELECT database();
