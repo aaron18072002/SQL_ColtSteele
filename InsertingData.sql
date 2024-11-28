@@ -37,3 +37,15 @@ VALUES ('Linda','Belcher',45),
 SELECT * FROM people;
 
 DROP TABLE people;
+
+DESC cats;
+
+CREATE TABLE cats2 (
+	Name VARCHAR(20) NOT NULL,
+    Age INT NOT NULL
+);
+
+DESC cats2;
+
+INSERT INTO cats2(Name,Age) 
+VALUES ('Tom');
