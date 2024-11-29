@@ -49,3 +49,33 @@ DESC cats2;
 
 INSERT INTO cats2(Name,Age) 
 VALUES ('Tom');
+
+USE pet_shop;
+
+CREATE TABLE cat3 (
+	Name VARCHAR(30) NOT NULL DEFAULT 'unnamed',
+    Age INT NOT NULL DEFAULT -1
+);
+
+INSERT INTO cat3()
+VALUES ();
+
+SELECT * FROM cat3;
+
+INSERT INTO cat3(Name) 
+VALUES (NULL,12);
+
+DESC cat3;
+
+CREATE TABLE unique_cats (
+	cat_id INT NOT NULL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL DEFAULT 'unnamed',
+    age INT
+);
+
+DESC unique_cats;
+
+INSERT INTO unique_cats(cat_id,name,age)
+VALUES (1,'Tom',10);
+
+SELECT * FROM unique_cats;
