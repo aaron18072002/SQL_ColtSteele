@@ -79,3 +79,43 @@ INSERT INTO unique_cats(cat_id,name,age)
 VALUES (1,'Tom',10);
 
 SELECT * FROM unique_cats;
+DROP TABLE unique_cats;
+
+CREATE TABLE unique_cats (
+	cat_id INT auto_increment PRIMARY KEY,
+    name VARCHAR(30) NOT NULL DEFAULT 'unnamed',
+    age INT
+);
+
+DESC unique_cats;
+
+SELECT * FROM unique_cats;
+
+INSERT INTO unique_cats(cat_id,name,age)
+VALUES (4,'Tom',12);
+
+INSERT INTO unique_cats(name,age)
+VALUES ('Tom',12);
+
+CREATE TABLE Employees (
+	id INT auto_increment PRIMARY KEY,
+    last_name VARCHAR(30) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    middle_name VARCHAR(30),
+    age INT NOT NULL,
+    current_status VARCHAR(20) NOT NULL DEFAULT 'employed'
+);
+
+DESC Employees;
+SELECT * FROM Employees;
+
+INSERT INTO Employees(last_name,first_name,middle_name,age,current_status)
+VALUES ('peter','kyle','walker',12,'left');
+
+DROP TABLE cat3;
+DROP TABLE cats;
+DROP TABLE cats2;
+DROP TABLE Employees;
+DROP TABLE dogs;
+DROP TABLE unique_cats;
+DROP database pet_shop;
