@@ -32,3 +32,14 @@ VALUES ('The Namesake', 'Jhumpa', 'Lahiri', 2003, 32, 291),
 ('Consider the Lobster', 'David', 'Foster Wallace', 2005, 92, 343);
 
 SELECT * FROM books;
+
+SELECT CONCAT(author_fname,' ',author_lname) AS author_name
+FROM books;
+
+SELECT SUBSTRING(title,1,5) AS short_title
+FROM books;
+
+SELECT CONCAT(SUBSTRING(title,1,10),'...')
+FROM books;
+
+SELECT REPLACE(title, 'e ', '3') FROM books;
