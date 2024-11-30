@@ -112,6 +112,8 @@ SELECT * FROM Employees;
 INSERT INTO Employees(last_name,first_name,middle_name,age,current_status)
 VALUES ('peter','kyle','walker',12,'left');
 
+USE pet_shop;
+
 DROP TABLE cat3;
 DROP TABLE cats;
 DROP TABLE cats2;
@@ -119,3 +121,5 @@ DROP TABLE Employees;
 DROP TABLE dogs;
 DROP TABLE unique_cats;
 DROP database pet_shop;
+
+
