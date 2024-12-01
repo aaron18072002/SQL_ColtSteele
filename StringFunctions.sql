@@ -43,3 +43,7 @@ SELECT CONCAT(SUBSTRING(title,1,10),'...')
 FROM books;
 
 SELECT REPLACE(title, 'e ', '3') FROM books;
+
+USE books_shop;
+DROP TABLE books;
+DROP database books_shop;
