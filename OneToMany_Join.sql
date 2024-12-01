@@ -104,3 +104,16 @@ FROM students AS S
 LEFT JOIN papers AS P
 ON S.student_id = P.student_id
 ORDER BY grade DESC;
+
+SELECT S.first_name, 
+	   IFNULL(AVG(P.grade),0) AS total_grade
+FROM students AS S
+LEFT JOIN papers AS P
+ON S.student_id = P.student_id
+GROUP BY S.first_name
+ORDER BY total_grade DESC;
+
+DROP TABLE customers;
+DROP TABLE orders;
+
+DROP database cart;
