@@ -77,3 +77,49 @@ LEFT JOIN reviews AS R
 ON S.serie_id = R.serie_id
 GROUP BY s.title
 ORDER BY avg_rating DESC;
+
+USE theaters;
+
+SELECT CONCAT(RE.first_name,' ',RE.last_name) AS name
+	   ,R.rating
+FROM reviews AS R
+INNER JOIN reviewers AS RE
+ON R.reviewer_id = RE.reviewer_id;
+
+SELECT S.title AS unreviewed_series
+FROM series AS S
+LEFT JOIN reviews AS R
+ON S.serie_id = R.serie_id
+WHERE R.rating IS NULL;
+
+SELECT S.genre, ROUND(AVG(R.rating),2) AS avg_rating
+FROM reviews AS R
+INNER JOIN series AS S
+ON R.serie_id = S.serie_id
+GROUP BY S.genre;
+
+SELECT concat(RER.first_name,' ',RER.first_name) AS reviewer_name,
+	   COUNT(R.rating) AS total_rates,
+       IFNULL(MAX(R.rating),0) AS max_rate,
+       IFNULL(MIN(R.rating),0) AS min_rate,
+       ROUND(AVG(R.rating),2) AS avg_rate,
+       CASE
+		WHEN COUNT(R.rating) >= 10 THEN 'POWERUSER'
+        WHEN COUNT(R.rating) > 0 THEN 'ACTIVE'
+	    ELSE 'INACTIVE'
+	   END AS status
+FROM reviewers AS RER
+LEFT JOIN reviews AS R
+ON RER.reviewer_id = R.reviewer_id
+GROUP BY RER.first_name,RER.first_name;
+
+SELECT concat(RER.first_name,' ',RER.first_name) AS reviewer_name,
+	   COUNT(R.rating) AS total_rates,
+       IFNULL(MAX(R.rating),0) AS max_rate,
+       IFNULL(MIN(R.rating),0) AS min_rate,
+       ROUND(AVG(R.rating),2) AS avg_rate,
+       IF(COUNT(R.rating) > 0, 'ACTIVE','INACTIVE') AS status
+FROM reviewers AS RER
+LEFT JOIN reviews AS R
+ON RER.reviewer_id = R.reviewer_id
+GROUP BY RER.first_name,RER.first_name
