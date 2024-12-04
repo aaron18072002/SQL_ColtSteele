@@ -122,4 +122,12 @@ SELECT concat(RER.first_name,' ',RER.first_name) AS reviewer_name,
 FROM reviewers AS RER
 LEFT JOIN reviews AS R
 ON RER.reviewer_id = R.reviewer_id
-GROUP BY RER.first_name,RER.first_name
+GROUP BY RER.first_name,RER.first_name;
+
+SELECT S.title,R.rating,
+	   CONCAT(RER.first_name,' ',RER.first_name) AS reviewer_name
+FROM reviews AS R
+INNER JOIN reviewers AS RER
+ON R.reviewer_id = RER.reviewer_id
+INNER JOIN series AS S
+ON R.serie_id = S.serie_id;
